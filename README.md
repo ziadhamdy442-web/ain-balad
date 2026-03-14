@@ -711,3 +711,168 @@ body {
   }
 }
 
+
+
+
+.reports-table-container {
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.reports-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.reports-table thead {
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.reports-table th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #1976d2;
+}
+
+.reports-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.reports-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.reports-table td {
+  padding: 16px;
+  color: #333;
+}
+
+.report-id {
+  font-weight: 600;
+  color: #1976d2;
+}
+
+.issue {
+  font-weight: 500;
+}
+
+.department {
+  color: #666;
+}
+
+.date {
+  color: #888;
+}
+
+.priority {
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.priority.low {
+  color: #52c41a;
+  background-color: #f6ffed;
+}
+
+.priority.medium {
+  color: #faad14;
+  background-color: #fffbe6;
+}
+
+.priority.high {
+  color: #ff4d4f;
+  background-color: #fff1f0;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 80px;
+}
+
+.status-badge.new {
+  background-color: #e6e6fa;
+  color: #722ed1;
+}
+
+.status-badge.assigned {
+  background-color: #fce7f3;
+  color: #c41d7f;
+}
+
+.status-badge.in-progress {
+  background-color: #ffeaa7;
+  color: #d63031;
+}
+
+.status-badge.pending {
+  background-color: #dfe6e9;
+  color: #636e72;
+}
+
+.status-badge.late {
+  background-color: #fab1a0;
+  color: #d63031;
+}
+
+.action-cell {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.view-btn,
+.delete-btn,
+.close-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.view-btn {
+  background-color: #e6f4ff;
+  color: #1976d2;
+}
+
+.view-btn:hover {
+  background-color: #bae7ff;
+  transform: translateY(-2px);
+}
+
+.delete-btn {
+  background-color: #fff1f0;
+  color: #ff4d4f;
+}
+
+.delete-btn:hover {
+  background-color: #ffccc7;
+  transform: translateY(-2px);
+}
+
+.close-btn {
+  background-color: transparent;
+  color: #999;
+  border: 1px solid #e0e0e0;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+.close-btn:hover {
+  background-color: #f0f0f0;
+}
