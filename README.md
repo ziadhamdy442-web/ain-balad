@@ -876,3 +876,17 @@ body {
 .close-btn:hover {
   background-color: #f0f0f0;
 }
+
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './App.css';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
