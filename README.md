@@ -611,3 +611,46 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+
+
+.reports-management {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header-section h1 {
+  font-size: 28px;
+  color: #1976d2;
+  font-weight: 600;
+}
+
+.export-btn {
+  padding: 12px 24px;
+  background-color: #ffb84d;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.export-btn:hover {
+  background-color: #ffa826;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 184, 77, 0.3);
+}
+
