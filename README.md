@@ -73,5 +73,43 @@ function App() {
     </div>
   );
 }
+import React from 'react';
+import '../styles/Sidebar.css';
 
+function Sidebar({ currentPage, setCurrentPage }) {
+  const menuItems = [
+    { id: 'dashboards', label: 'Dashboards', icon: '📊' },
+    { id: 'reports', label: 'Reports', icon: '📋' },
+    { id: 'ai-review', label: 'AI Review', icon: '🤖' },
+    { id: 'analysis', label: 'Analysis', icon: '📈' },
+    { id: 'users', label: 'Users', icon: '👥' }
+  ];
+
+  return (
+    <aside className="sidebar">
+      <div className="sidebar-logo">
+        <div className="logo-circle">أم الـــــــــبلـــد</div>
+      </div>
+
+      <nav className="sidebar-nav">
+        {menuItems.map((item) => (
+          <button
+            key={item.id}
+            className={`nav-item ${currentPage === item.id ? 'active' : ''}`}
+            onClick={() => setCurrentPage(item.id)}
+          >
+            <span className="icon">{item.icon}</span>
+            <span className="label">{item.label}</span>
+          </button>
+        ))}
+      </nav>
+
+      <div className="sidebar-footer">
+        <button className="logout-btn">🚪 Log Out</button>
+      </div>
+    </aside>
+  );
+}
+
+export default Sidebar;
 export default App;
