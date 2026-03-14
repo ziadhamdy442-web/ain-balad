@@ -112,4 +112,116 @@ function Sidebar({ currentPage, setCurrentPage }) {
 }
 
 export default Sidebar;
+
+
+import React, { useState } from 'react';
+import '../styles/ReportsManagement.css';
+import FilterSection from './FilterSection';
+import ReportsTable from './ReportsTable';
+
+function ReportsManagement() {
+  const [filters, setFilters] = useState({
+    date: 'Last 30 Days',
+    status: 'All',
+    priority: 'All',
+    department: 'All'
+  });
+
+  const [reports, setReports] = useState([
+    {
+      id: 1023,
+      issue: 'Water leakage',
+      department: 'Electricity',
+      submittedDate: '12 oct 2025',
+      priority: 'Low',
+      status: 'New',
+      actions: ['View', 'Delete']
+    },
+    {
+      id: 1024,
+      issue: 'Street light failure',
+      department: 'Water',
+      submittedDate: '11 Nov 2025',
+      priority: 'Medium',
+      status: 'Assigned',
+      actions: ['View', 'Delete']
+    },
+    {
+      id: 1025,
+      issue: 'Garbage accumulation',
+      department: 'Sewage',
+      submittedDate: '22 April 2024',
+      priority: 'High',
+      status: 'Late',
+      actions: ['View', 'Delete']
+    },
+    {
+      id: 1026,
+      issue: 'Road crack',
+      department: 'Roads',
+      submittedDate: '1 Mai 2024',
+      priority: 'Medium',
+      status: 'In Progress',
+      actions: ['View', 'Delete']
+    },
+    {
+      id: 1027,
+      issue: 'Fire incident',
+      department: 'Cleaning & Environment',
+      submittedDate: '13 oct 2025',
+      priority: 'High',
+      status: 'Pending',
+      actions: ['View', 'Delete']
+    },
+    {
+      id: 1028,
+      issue: 'Sewage overflow',
+      department: 'Parks & Recreation',
+      submittedDate: '5 oct 2025',
+      priority: 'High',
+      status: 'In Progress',
+      actions: ['View', 'Delete']
+    }
+  ]);
+
+  const handleFilterChange = (filterName, value) => {
+    setFilters(prev => ({
+      ...prev,
+      [filterName]: value
+    }));
+  };
+
+  const handleExportCSV = () => {
+    const csv = [
+      ['Report ID', 'Issue', 'Department', 'Submitted Date', 'Priority', 'Status'],
+      ...reports.map(r => [r.id, r.issue, r.department, r.submittedDate, r.priority, r.status])
+    ]
+      .map(row => row.join(','))
+      .join('\n');
+
+    const element = document.createElement('a');
+    element.setAttribute('href', `data:text/csv;charset=utf-8,${encodeURIComponent(csv)}`);
+    element.setAttribute('download', 'reports.csv');
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  };
+
+  return (
+    <div className="reports-management">
+      <div className="header-section">
+        <h1>Reports Management</h1>
+        <button className="export-btn" onClick={handleExportCSV}>
+          📥 Export CSV
+        </button>
+      </div>
+
+      <FilterSection filters={filters} onFilterChange={handleFilterChange} />
+      <ReportsTable reports={reports} setReports={setReports} />
+    </div>
+  );
+}
+
+export default ReportsManagement;
 export default App;
