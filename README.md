@@ -375,4 +375,17 @@ function AIReview() {
 }
 
 export default AIReview;
+
+import React from 'react';
+
+function Analysis() {
+  return (
+    <div className="page">
+      <h1>📈 Analysis</h1>
+      <p>Analysis content will be displayed here.</p>
+    </div>
+  );
+}
+
+export default Analysis;
 export default App;
