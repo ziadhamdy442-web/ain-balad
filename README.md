@@ -224,4 +224,61 @@ function ReportsManagement() {
 }
 
 export default ReportsManagement;
+
+
+import React from 'react';
+import '../styles/FilterSection.css';
+
+function FilterSection({ filters, onFilterChange }) {
+  return (
+    <div className="filter-section">
+      <div className="filter-group">
+        <label>Date:</label>
+        <select value={filters.date} onChange={(e) => onFilterChange('date', e.target.value)}>
+          <option>Last 30 Days</option>
+          <option>Last 7 Days</option>
+          <option>Last 90 Days</option>
+          <option>All Time</option>
+        </select>
+      </div>
+
+      <div className="filter-group">
+        <label>Status:</label>
+        <select value={filters.status} onChange={(e) => onFilterChange('status', e.target.value)}>
+          <option>All</option>
+          <option>New</option>
+          <option>Assigned</option>
+          <option>In Progress</option>
+          <option>Pending</option>
+          <option>Late</option>
+        </select>
+      </div>
+
+      <div className="filter-group">
+        <label>Priority:</label>
+        <select value={filters.priority} onChange={(e) => onFilterChange('priority', e.target.value)}>
+          <option>All</option>
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
+      </div>
+
+      <div className="filter-group">
+        <label>Department:</label>
+        <select value={filters.department} onChange={(e) => onFilterChange('department', e.target.value)}>
+          <option>All</option>
+          <option>Electricity</option>
+          <option>Water</option>
+          <option>Sewage</option>
+          <option>Roads</option>
+          <option>Cleaning & Environment</option>
+          <option>Parks & Recreation</option>
+        </select>
+      </div>
+    </div>
+  );
+}
+
+export default FilterSection;
 export default App;
