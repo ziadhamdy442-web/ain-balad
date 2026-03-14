@@ -22,3 +22,56 @@
     "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   }
 }
+
+
+
+import React, { useState } from 'react';
+import './App.css';
+import Sidebar from './components/Sidebar';
+import ReportsManagement from './components/ReportsManagement';
+import Dashboards from './components/Dashboards';
+import AIReview from './components/AIReview';
+import Analysis from './components/Analysis';
+import Users from './components/Users';
+
+function App() {
+  const [currentPage, setCurrentPage] = useState('reports');
+  const [user] = useState({
+    name: 'Amr',
+    role: 'Admin',
+    avatar: 'https://i.pravatar.cc/150?img=1'
+  });
+
+  return (
+    <div className="app-container">
+      <Sidebar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <div className="main-content">
+        <header className="app-header">
+          <div className="header-title">
+            <img src="https://img.icons8.com/color/96/000000/eye.png" alt="Logo" className="logo" />
+          </div>
+          <div className="header-right">
+            <div className="user-profile">
+              <img src={user.avatar} alt="User" className="user-avatar" />
+              <div className="user-info">
+                <p className="user-name">{user.name}</p>
+                <p className="user-role">{user.role}</p>
+              </div>
+              <span className="dropdown-arrow">▼</span>
+            </div>
+          </div>
+        </header>
+
+        <main className="page-content">
+          {currentPage === 'reports' && <ReportsManagement />}
+          {currentPage === 'dashboards' && <Dashboards />}
+          {currentPage === 'ai-review' && <AIReview />}
+          {currentPage === 'analysis' && <Analysis />}
+          {currentPage === 'users' && <Users />}
+        </main>
+      </div>
+    </div>
+  );
+}
+
+export default App;
