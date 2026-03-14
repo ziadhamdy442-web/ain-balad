@@ -360,4 +360,19 @@ function Dashboards() {
 }
 
 export default Dashboards;
+
+
+
+import React from 'react';
+
+function AIReview() {
+  return (
+    <div className="page">
+      <h1>🤖 AI Review</h1>
+      <p>AI Review content will be displayed here.</p>
+    </div>
+  );
+}
+
+export default AIReview;
 export default App;
