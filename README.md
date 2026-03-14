@@ -348,4 +348,16 @@ function ReportsTable({ reports, setReports }) {
 }
 
 export default ReportsTable;
+import React from 'react';
+
+function Dashboards() {
+  return (
+    <div className="page">
+      <h1>📊 Dashboards</h1>
+      <p>Dashboard content will be displayed here.</p>
+    </div>
+  );
+}
+
+export default Dashboards;
 export default App;
