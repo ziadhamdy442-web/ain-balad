@@ -281,4 +281,71 @@ function FilterSection({ filters, onFilterChange }) {
 }
 
 export default FilterSection;
+
+import React from 'react';
+import '../styles/ReportsTable.css';
+
+function ReportsTable({ reports, setReports }) {
+  const getStatusClass = (status) => {
+    return status.toLowerCase().replace(' ', '-');
+  };
+
+  const getPriorityClass = (priority) => {
+    return priority.toLowerCase();
+  };
+
+  const handleDelete = (id) => {
+    if (window.confirm('Are you sure you want to delete this report?')) {
+      setReports(reports.filter(r => r.id !== id));
+    }
+  };
+
+  return (
+    <div className="reports-table-container">
+      <table className="reports-table">
+        <thead>
+          <tr>
+            <th>Report ID</th>
+            <th>Issue</th>
+            <th>Department</th>
+            <th>Submitted Date</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {reports.map((report) => (
+            <tr key={report.id}>
+              <td className="report-id">#{report.id}</td>
+              <td className="issue">{report.issue}</td>
+              <td className="department">{report.department}</td>
+              <td className="date">{report.submittedDate}</td>
+              <td className={`priority ${getPriorityClass(report.priority)}`}>
+                {report.priority}
+              </td>
+              <td>
+                <span className={`status-badge ${getStatusClass(report.status)}`}>
+                  {report.status}
+                </span>
+              </td>
+              <td className="action-cell">
+                <button className="view-btn">👁️ View</button>
+                <button 
+                  className="delete-btn"
+                  onClick={() => handleDelete(report.id)}
+                >
+                  🗑️ Delete
+                </button>
+                <button className="close-btn">✕</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default ReportsTable;
 export default App;
