@@ -388,4 +388,23 @@ function Analysis() {
 }
 
 export default Analysis;
+
+
+
+
+
+
+
+import React from 'react';
+
+function Users() {
+  return (
+    <div className="page">
+      <h1>👥 Users</h1>
+      <p>Users content will be displayed here.</p>
+    </div>
+  );
+}
+
+export default Users;
 export default App;
